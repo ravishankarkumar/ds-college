@@ -1,0 +1,112 @@
+.salmon-color{
+	color: salmon;
+}
+
+.navbar-default{
+	background-color: white;
+}
+
+nav{
+	text-transform: uppercase;
+	padding: 12px;
+	font-family: 'Roboto Condensed', sans-serif;
+	/*box-shadow: 0 4px 4px #ccc;*/
+}
+
+.navbar-brand{
+	font-size: 2em;
+}
+
+#pigeon-nav li a{
+	border: 2px solid transparent;
+	padding: 5px 10px;
+	margin: 5px;
+}
+
+#pigeon-nav li a:hover{
+	color: salmon;
+}
+
+#pigeon-nav li a:focus,#pigeon-nav li a:active{
+	color: salmon;
+	border: 2px solid salmon;
+	border-radius: 5px;
+}
+
+#myJumbo{
+	background-image: url("/assets/images/jumbo-back.jpg");
+	margin-top: -20px;
+	color: white;
+	text-align: center;
+}
+
+.btn-jumbo{
+	color: white;
+	border: 2px solid white;
+	border-radius: 5px;
+	background-color: transparent;
+	padding: 10px 15px;
+	margin: 20px;
+	font-size: 1.5em;
+}
+
+.btn-jumbo:hover, .btn-jumbo:active, .btn-jumbo:focus{
+	background-color: salmon;
+	border: 2px solid salmon;
+	color: white;
+};
+
+.labsHead{
+	font-size: 3em;
+}
+
+i.salmon-color{
+	font-size: 3em;
+}
+
+.salmon-bg{
+	background-color: salmon;
+}
+.white-color{
+	color:white;
+}
+i.white-color{
+	font-size: 3em;
+}
+
+.btn-salmon{
+	color: salmon;
+	background-clip: transparent;
+	border: 2px solid salmon;
+	border-radius: 5px;
+	padding: 10px 15px;
+	margin: 20px;
+}
+
+.btn-salmon:active, .btn-salmon:hover, .btn-salmon:focus{
+	color: white;
+	background-color: salmon;
+}
+
+.btn-white{
+	color: white;
+	background-color: transparent;
+	border: 2px solid white;
+	border-radius: 5px;
+	padding: 10px 15px;
+	margin: 20px;
+}
+
+.btn-white:active, .btn-white:hover, .btn-white:focus{
+	color: salmon;
+	background-color: white;
+}
+
+.footer{
+	background-color: #444;
+	padding: 20px;
+}
+
+.grey-color{
+	color: #777;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Distributed Systems assignment</title>
+
+
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/custom.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+  {% block more-style %}
+  {% endblock %}
+
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#pigeon-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand wow rubberBand" href="/"><span class="salmon-color"><i class="fa fa-files-o"></i> DS</span> Lab</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse wow lightSpeedIn" id="pigeon-nav">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">Home</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+{% block body-content %}
+{% endblock %}
+
+<div class="container-fluid">
+  <div class="row text-center" id="about">
+    <div class="salmon-color wow slideInDpwn">
+      <h1>About our team</h1>
+    </div>
+    <p class="grey-color wow slideInLeft">Ravi Ratan, 20124026</p>
+    <p class="grey-color wow slideInRight">Sandeep Kumar, 20121059</p>
+    <p class="grey-color wow slideInRight">Saquib Aftab, 20124027</p>
+    <p class="grey-color wow slideInLeft">Ravi Shankar, 20124025</p>
+    <a href="/" class="btn btn-salmon wow slideInUp"><i class=" fa fa-angle-double-up"></i></a>
+  </div>
+  <div class="row text-center footer" id="footer">
+    <div class="">
+      <p class="white-color">Copyright &copy; MNNIT Allahabad</p>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/assets/js/jquery-2.1.14.min.js"></script>
+  <script src="/assets/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="/assets/js/wow.min.js"></script>
+  <script type="text/javascript">
+    new WOW().init();
+  </script>
+  <script type="text/javascript" src="/assets/js/custom.js"></script>
+  <script type="text/javascript"></script>
+
+  {% block morescript %}
+  {% endblock %}
+
+</body>
+</html>

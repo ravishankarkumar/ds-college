@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" lang="en">
+<articleinfo>
+<title>Collaborative project developer</title>
+<date>2015-11-04</date>
+
+
+
+</articleinfo>
+<section id="_desription">
+<title>Desription</title>
+<simpara>We are developing an application which will enable people to keep real time track of progress being done by the peers on the different files.
+Using 2pc algorithm, we are developing a feature, in which changes will be committed only when all the online peers have reviewed and approved the code.</simpara>
+<simpara>We derived inspiration from, shared document editors and version control systems.
+In some way, its a hybrid of the two, where we have doing away with the complexity of the version control systems, and modifying the concept of collaborative editing to peer review.
+We, believe that the people who have just started with collaborative project will find our tool very useful.
+Our goal is to create a lightweight project server, which will host the project and promote real time collaboration and review.</simpara>
+</section>
+<section id="_structure">
+<title>Structure</title>
+<simpara>Project will be hosted on our central servers. Using web browsers, teams can access the different files of their project.
+Web browsers will feature full featured code editors (including syntax highlighter) for editing the code.
+Once, some code has been edited and the user want to commit the change, every other online users of same team will be notified of the changes. Once others have done OK to the changes, changes will be finally committed to the project.</simpara>
+</section>
+<section id="_description_of_the_technology_being_used">
+<title>Description of the technology being used</title>
+<simpara>We are writing our servers in node.js and and quite obviously, logics are being written using javascript.
+Database is implemented using mongoose and authentication will be done using, passport.</simpara>
+</section>
+<section id="_team_members">
+<title>Team members</title>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>Sandeep Kumar, 20121059</simpara>
+</listitem>
+<listitem>
+<simpara>Saquib Aftab, 20124027</simpara>
+</listitem>
+<listitem>
+<simpara>Ravi Ratan, 20124026</simpara>
+</listitem>
+<listitem>
+<simpara>Ravi Shankar, 20124025</simpara>
+</listitem>
+</orderedlist>
+
+</section>
+</article>

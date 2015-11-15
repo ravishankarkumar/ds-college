@@ -1,0 +1,28 @@
+= Collaborative project developer
+
+
+== Desription
+We are developing an application which will enable people to keep real time track of progress being done by the peers on the different files.
+Using 2pc algorithm, we are developing a feature, in which changes will be committed only when all the online peers have reviewed and approved the code.
+
+We derived inspiration from, shared document editors and version control systems.
+In some way, its a hybrid of the two, where we have doing away with the complexity of the version control systems, and modifying the concept of collaborative editing to peer review.
+We, believe that the people who have just started with collaborative project will find our tool very useful.
+Our goal is to create a lightweight project server, which will host the project and promote real time collaboration and review.
+
+
+== Structure
+Project will be hosted on our central servers. Using web browsers, teams can access the different files of their project.
+Web browsers will feature full featured code editors (including syntax highlighter) for editing the code.
+Once, some code has been edited and the user want to commit the change, every other online users of same team will be notified of the changes. Once others have done OK to the changes, changes will be finally committed to the project.
+
+== Description of the technology being used
+We are writing our servers in node.js and and quite obviously, logics are being written using javascript.
+Database is implemented using mongoose and authentication will be done using, passport.
+
+== Team members
+
+. Sandeep Kumar, 20121059
+. Saquib Aftab, 20124027
+. Ravi Ratan, 20124026
+. Ravi Shankar, 20124025
