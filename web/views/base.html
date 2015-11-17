@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Distributed Systems assignment</title>
+  <title>{{ title }}</title>
 
 
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/custom.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/animate.css">
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+  <!--<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>-->
   {% block more-style %}
   {% endblock %}
 
@@ -38,6 +38,13 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/">Home</a></li>
         <li><a href="#about">About</a></li>
+        {% if user %}
+        <li><a href="/">Welcome {{ user }}</a></li>
+        <li><a href="/logout">Log Out</a></li>
+        {% else %}
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
+        {% endif %}
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

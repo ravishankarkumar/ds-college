@@ -20,8 +20,33 @@
     </div>
   </div>
   <div class="text-center">
+    {% if user %}
     <button type="button" class="btn btn-salmon" id="update">Update to server</button>
+    {% endif %}
     <button type="button" class="btn btn-salmon" id="fetch">Fetch latest from server</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-salmon" data-toggle="modal" data-target="#myModal" id="modal-wala">
+  Fetch by history
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">History of committed code</h4>
+      </div>
+      <div class="modal-body" id="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-salmon" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary hidden">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
 </div>
 {% endblock %}
@@ -40,6 +65,13 @@
     theme: "dracula"
   });
 </script>
+<script>
+  var setModal = function(doc){
+    for(var idx in doc){
+      $("#modal-body").append('<p>Commit '+doc[idx]._id+' by '+doc[idx].name+'<button type="button" class="btn btn-salmon fetchbyid" data-fetchid="'+doc[idx]._id+'">See This Code</button></p><hr>');
+    }
+  };
+</script>
 <script type="text/javascript">
   $(document).ready(function(){
     $("#fetch").on("click", function(){
@@ -55,6 +87,16 @@
       console.log(datum);
       $.post("/mycode", {"codedata": datum});
     });
+    
+    $("#modal-wala").on("click", function(){
+      $.ajax({
+        url: "/code",
+        context: document.body
+      }).done(function(doc){
+        setModal(doc);
+      });
+    });
+    
   });
 </script>
 {% endblock %}
