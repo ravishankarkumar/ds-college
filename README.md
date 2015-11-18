@@ -1,14 +1,14 @@
-## Distributed Systems College Project
+### Distributed Systems College Project
 
-### Under Prof. M.M.Gore Sir
-### Team
+##### Under Prof. M.M.Gore Sir
+#### Team
 
 - Ravi Shankar (ravishankarkumar@live.com)
 - Ravi Ratan
 - Saquib Aftab
 - Sandeep Yadav
 
-To run this project
+#### To run this project
 - install mongodb on your syatem
 - start mongodb
 - install node.js
