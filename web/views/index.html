@@ -73,15 +73,17 @@
   };
 </script>
 <script type="text/javascript">
-  $(document).ready(function(){
-    $("#fetch").on("click", function(){
+var fetchOnLoad = function(){
       $.ajax({
         url: "/mycode",
         context: document.body
       }).done(function(doc) {
         editor.doc.setValue(doc);
       });
-    });
+    };
+  $(document).ready(function(){
+    $("#fetch").on("click", fetchOnLoad);
+    
     $("#update").on("click", function(){
       var datum = editor.doc.getValue();
       console.log(datum);
@@ -97,6 +99,11 @@
       });
     });
     
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    fetchOnLoad();
   });
 </script>
 {% endblock %}
