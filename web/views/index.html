@@ -38,7 +38,6 @@
         <h4 class="modal-title" id="myModalLabel">History of committed code</h4>
       </div>
       <div class="modal-body" id="modal-body">
-        ...
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-salmon" data-dismiss="modal">Close</button>
@@ -53,10 +52,10 @@
 
 {% block morescript %}
 <!-- Create a simple CodeMirror instance -->
-<link rel="stylesheet" href="codemirror-5.8/lib/codemirror.css">
-<link rel="stylesheet" href="codemirror-5.8/theme/dracula.css">
-<script src="codemirror-5.8/lib/codemirror.js"></script>
-<script src="codemirror-5.8/mode/javascript/javascript.js"></script>
+<link rel="stylesheet" href="/codemirror-5.8/lib/codemirror.css">
+<link rel="stylesheet" href="/codemirror-5.8/theme/dracula.css">
+<script src="/codemirror-5.8/lib/codemirror.js"></script>
+<script src="/codemirror-5.8/mode/javascript/javascript.js"></script>
 <script>
   var editor = CodeMirror.fromTextArea(myTextarea, {
     lineNumbers: true,
@@ -68,12 +67,13 @@
 <script>
   var setModal = function(doc){
     for(var idx in doc){
-      $("#modal-body").append('<p>Commit '+doc[idx]._id+' by '+doc[idx].name+'<button type="button" class="btn btn-salmon fetchbyid" data-fetchid="'+doc[idx]._id+'">See This Code</button></p><hr>');
+      $("#modal-body").prepend('<p>Commit <strong>'+doc[idx]._id+'</strong> by <strong>'+doc[idx].name+'</strong><br><br><a href="/forapproval/'+doc[idx]._id+'">Review and approve this code</a></p><hr>');
+    }
+    if(doc.length==0){
+      $("#modal-body").append("No Commit History present");
     }
   };
-</script>
-<script type="text/javascript">
-var fetchOnLoad = function(){
+  var fetchOnLoad = function(){
       $.ajax({
         url: "/mycode",
         context: document.body
@@ -81,6 +81,18 @@ var fetchOnLoad = function(){
         editor.doc.setValue(doc);
       });
     };
+    
+    var fetchById = function(id){
+      var fetchurl = "/codebyid/"+id;
+      $.ajax({
+        url: fetchurl,
+        context: document.body
+      }).done(function(doc){
+        editor.doc.setValue(doc);
+      });
+    };
+</script>
+<script type="text/javascript">
   $(document).ready(function(){
     $("#fetch").on("click", fetchOnLoad);
     
@@ -103,7 +115,13 @@ var fetchOnLoad = function(){
 </script>
 <script>
   $(document).ready(function(){
-    fetchOnLoad();
+    var pre = "{{ pre }}";
+    var codeId = "{{ fetchId }}";
+    if(pre){
+      fetchById(codeId);
+    } else{
+      fetchOnLoad();
+    }
   });
 </script>
 {% endblock %}

@@ -54,8 +54,12 @@ router.get('/code', function(req, res, next) {
 router.get('/codebyid/:id', function(req, res, next) {
   Code.findOne({_id: req.param("id")},function(err, doc){
     res.send(doc.codeBody);
-    console.log(doc);
+    console.log(doc.codeBody);
   });
+});
+
+router.get('/forapproval/:codeId', isLoggedIn, function(req, res, next) {
+    res.render('index', { title: 'Distributed Systems Lab', user: req.user.local.email, pre:true, fetchId:req.param("codeId") });
 });
 
 router.get('/mycode', function(req, res, next) {
