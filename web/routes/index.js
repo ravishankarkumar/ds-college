@@ -93,7 +93,7 @@ router.get('/reject/:id', function(req, res, next) {
       doc.approval.splice(idx, 1);
       console.log("index in approval is"+idx);
     }
-    res.send("OK");
+    res.end("OK");
     console.log("Updated Approval and Rejection List are:");
     console.log(doc.approval);
     console.log(doc.rejection);
@@ -114,15 +114,15 @@ router.get('/mycode', function(req, res, next) {
       //res.send(doc[doc.length - 1].codeBody);
       for(var idx = doc.length -1; idx >= 0; idx--){
         if(doc[idx].committed==true){
-          res.send(doc[idx].codeBody);
+          res.end(doc[idx].codeBody);
           fl=1;
         }
       }
     } else{
-      res.send("No Code Committed!");      
+      res.end("No Code Committed!");      
     }
     if(fl==0){
-      res.send("No Code Committed!");  
+      res.end("No Code Committed!");  
     }
   });
 });
@@ -135,7 +135,7 @@ router.post('/mycode', isLoggedIn, function(req, res, next) {
 
 router.get('/mycode-old', function(req, res, next) {
   Code.findOne({_id: "563915b9caf6270518b45f97"},function(err, doc){
-    res.send(doc.codeBody);
+    res.end(doc.codeBody);
   });
 });
 router.post('/mycode-old', function(req, res, next) {
