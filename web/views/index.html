@@ -19,7 +19,7 @@
       <textarea id="myTextarea"></textarea>
     </div>
   </div>
-  <div class="text-center">
+  <div class="text-center" id="controls">
     {% if user %}
     <button type="button" class="btn btn-salmon" id="update">Update to server</button>
     {% endif %}
@@ -119,9 +119,29 @@
     var codeId = "{{ fetchId }}";
     if(pre){
       fetchById(codeId);
+      $("#controls").prepend('<button type="button" class="btn btn-salmon" id="reject">Reject this</button>');
+      $("#controls").prepend('<button type="button" class="btn btn-salmon" id="accept">Accept this</button>');
     } else{
       fetchOnLoad();
     }
+    $("#accept").on("click", function(){
+      var accepturl = "/accept/"+codeId;
+      $.ajax({
+        url: accepturl
+      }).done(function(doc){
+        $("#accept").text("Accepted");
+        $("#reject").text("Reject");
+      });
+    });
+    $("#reject").on("click", function(){
+      var rejecturl = "/reject/"+codeId;
+      $.ajax({
+        url: rejecturl
+      }).done(function(doc){
+        $("#reject").text("Rejected");
+        $("#accept").text("Accept");
+      });
+    });
   });
 </script>
 {% endblock %}
