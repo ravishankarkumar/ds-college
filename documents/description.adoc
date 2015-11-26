@@ -1,5 +1,45 @@
 = Collaborative project developer
+:doctype: book
 
+[dedication]
+Certificate
+===========
+The optional book preface goes here at section level zero.
+
+
+
+[dedication]
+Undertaking
+===========
+The optional dedication goes here.
+
+This document is an AsciiDoc multi-part book skeleton containing
+briefly annotated element placeholders plus a couple of example index
+entries and footnotes. Books are normally used to generate DocBook
+markup and the preface, appendix, bibliography, glossary and index
+section titles are significant ('specialsections').
+
+[preface]
+Preface
+=======
+The optional dedication goes here.
+
+This document is an AsciiDoc multi-part book skeleton containing
+briefly annotated element placeholders plus a couple of example index
+entries and footnotes. Books are normally used to generate DocBook
+markup and the preface, appendix, bibliography, glossary and index
+section titles are significant ('specialsections').
+
+[dedication]
+Acknowledgement
+===============
+The optional dedication goes here.
+
+This document is an AsciiDoc multi-part book skeleton containing
+briefly annotated element placeholders plus a couple of example index
+entries and footnotes. Books are normally used to generate DocBook
+markup and the preface, appendix, bibliography, glossary and index
+section titles are significant ('specialsections').
 
 == Desription
 We are developing an application which will enable people to keep real time track of progress being done by the peers on the different files.

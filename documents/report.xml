@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<book xmlns="http://docbook.org/ns/docbook" lang="en">
+<bookinfo>
+<title>Collaborative Project Developer</title>
+<date>2015-11-26</date>
+
+
+
+</bookinfo>
+<dedication id="_undertaking">
+<title>Undertaking</title>
+<simpara>We declare that work presented in this project titled "Collaborative Project Developer" , submitted to Prof. M.M Gore , Computer Science and Engineering , Motilal Nehru National Institute of Technology is an original work . We have not plagiarized or submitted the same work for the award of any other degree.</simpara>
+<simpara>November, 2015, Allahabad</simpara>
+<simpara>Saquib Aftab  (20124027)</simpara>
+<simpara>Sandeep Kumar (20121059)</simpara>
+<simpara>Ravi Ratan    (20124026)</simpara>
+<simpara>Ravi Shankar  (20124025)</simpara>
+</dedication>
+<dedication id="_acknowledgement">
+<title>Acknowledgement</title>
+<simpara>We would take this opportunity to thank our teacher, Prof. M.M.Gore for providing us with such an exciting project to work on. His constant support and motivation helped us to do our best on the project. We thank him for all his help and excellent guidance upon us to help us achieve the result that we have on our project.</simpara>
+</dedication>
+<chapter id="_introduction">
+<title>Introduction</title>
+<simpara>Collaborative Project Developer is a very simple tool which enable us to collaborate on a project and maintain version.
+In a project it is very important to maintain versions and commit history, but the VCS which are available requires getting used to it. So, we started developing <literal>Collaborative Project Developer</literal>, which is very simple to use even for the first timer.</simpara>
+<section id="_motivation">
+<title>Motivation</title>
+<simpara>We wanted to develop an application, which can help people start collaborating on project development without having to go learn all the technicalities of version control systems such as git and perforce.
+So, we started working on this simple versioning and collaborative tool.</simpara>
+</section>
+<section id="_algorithm">
+<title>Algorithm</title>
+<simpara>In transaction processing, databases, and computer networking, the two-phase commit protocol (2PC) is a type of atomic commitment protocol (ACP). It is a distributed algorithm that coordinates all the processes that participate in a distributed atomic transaction on whether to commit or abort (roll back) the transaction (it is a specialized type of consensus protocol). The protocol achieves its goal even in many cases of temporary system failure (involving either process, network node, communication, etc. failures).</simpara>
+</section>
+<section id="_platform">
+<title>Platform</title>
+<simpara>We are using node.js as our platform for developing this project. Alongwith node.js we are using some libraries to make development process faster.</simpara>
+<section id="_node_js">
+<title>Node.js</title>
+<simpara>Node.js® is a JavaScript runtime built on Chrome&#8217;s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
+.An Example of node.js server</simpara>
+<programlisting language="javascript" linenumbering="unnumbered">var http = require('http');
+
+//Lets define a port we want to listen to
+const PORT=8080;
+
+//We need a function which handles requests and send response
+function handleRequest(request, response){
+    response.end('It Works!! Path Hit: ' + request.url);
+}
+
+//Create a server
+var server = http.createServer(handleRequest);
+
+//Lets start our server
+server.listen(PORT, function(){
+    //Callback triggered when server is successfully listening. Hurray!
+    console.log("Server listening on: http://localhost:%s", PORT);
+});</programlisting>
+
+<simpara><footnote><simpara>A simple node server</simpara></footnote>
+<indexterm>
+  <primary>A simple node server</primary>
+</indexterm></simpara>
+</section>
+<section id="_express">
+<title>Express</title>
+<simpara>Express.js is a Node.js web application server framework, designed for building single-page, multi-page, and hybrid web applications.[1] It is the de facto standard server framework for node.js.[2] The original author, TJ Holowaychuck, described it as a Sinatra-inspired server,[3] meaning that it is relatively minimal with many features available as plugins.</simpara>
+</section>
+<section id="_mongoose">
+<title>Mongoose</title>
+<simpara>Mongoose provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.</simpara>
+<formalpara>
+<title>An Example of mongoose</title>
+<para>
+<programlisting language="javascript" linenumbering="unnumbered">var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+
+var Cat = mongoose.model('Cat', { name: String });
+
+var kitty = new Cat({ name: 'Zildjian' });
+kitty.save(function (err) {
+  if (err) // ...
+  console.log('meow');
+});</programlisting>
+</para>
+</formalpara>
+
+<simpara><indexterm>
+  <primary>Example of mongoose</primary>
+</indexterm>
+<footnote><simpara>Mongoose example</simpara></footnote></simpara>
+</section>
+<section id="_passport">
+<title>Passport</title>
+<simpara>Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.</simpara>
+</section>
+<section id="_codemirror">
+<title>Codemirror</title>
+<simpara>Codemirror is an open source library used for implementing code editor in web pages.
+We have used this plug-in for implementing the code editor that is displayed on our web-app.</simpara>
+</section>
+</section>
+</chapter>
+<chapter id="_structure_of_the_app">
+<title>Structure of the App</title>
+<simpara>The structure of our app is inspired from MVC design philosophy.
+In MVC(Model View Controller), we separate what we have to show(views) from the main logic(controller). Similarly we also separate the models of underlying structure(models).</simpara>
+<simpara>In our main app, we have the following directories/files.</simpara>
+<section id="_views">
+<title>Views</title>
+<simpara>In this directory, we write all the files that we have to display. For example, <literal>index.html</literal>, <literal>login.html</literal> and <literal>signup.html</literal>.</simpara>
+</section>
+<section id="_routes">
+<title>Routes</title>
+<simpara>In this directory, we write all the server routes.
+For example, to handle the request for approving the code by a particular team member, we wrote the following code in <literal>index.js</literal> in routes directory:</simpara>
+<programlisting language="javascript" linenumbering="unnumbered">router.get('/accept/:id', function(req, res, next) {
+  Code.findOne({_id: req.param("id")},function(err, doc){
+    var idxt = doc.approval.indexOf(req.user.local.email);
+    if(doc.approval[idxt] != req.user.local.email){
+      doc.approval.push(req.user.local.email);
+      console.log("index in approval is"+idxt);
+    }
+    var idx = doc.rejection.indexOf(req.user.local.email);
+    if(doc.rejection[idx]==req.user.local.email){
+      doc.rejection.splice(idx, 1);
+      console.log("index in rejection is"+idx);
+    }
+    res.send("OK");
+    console.log("Updated Approval and Rejection List are:");
+    console.log(doc.approval);
+    console.log(doc.rejection);
+    updateCommit(doc);
+    console.log(doc.committed);
+    doc.save();
+  });
+});</programlisting>
+
+</section>
+<section id="_node_modules">
+<title>node_modules</title>
+<simpara>This directory contains all the node libraries that we use in our app.</simpara>
+</section>
+<section id="_public">
+<title>public</title>
+<simpara>This directory houses  static files(CSS or front end libraries) available.</simpara>
+</section>
+<section id="_bin">
+<title>bin</title>
+<simpara>This directory houses the <literal>www</literal> script that contains environment configurations for our app.</simpara>
+</section>
+<section id="_app_js">
+<title>app.js</title>
+<simpara>This is our main server. This file is responsible for importing all the libraries, configuring the environment and starting the server.</simpara>
+</section>
+</chapter>
+<chapter id="_features_of_the_app">
+<title>Features of the app</title>
+<section id="_authentication">
+<title>Authentication</title>
+<simpara>This app provides the feature for the authentic members to log into the app.
+This prevents the unauthorised users from making any changes or corrupting the files. For Authentication purpose, we use <literal>passport.js</literal> library.</simpara>
+</section>
+<section id="_online_code_editor">
+<title>Online Code Editor</title>
+<simpara>Using <literal>codemirror</literal> library as a starting point, we were able to implement an online code editor for our app. This is a full-featured online-editor.</simpara>
+<section id="_syntax_highlighting">
+<title>Syntax highlighting</title>
+<simpara>The code-editor has the capability to highlight syntax of the code.</simpara>
+</section>
+<section id="_auto_indent">
+<title>Auto-indent</title>
+<simpara>This code editor also provides facility for auto-indenting codes, while changing lines.</simpara>
+</section>
+<section id="_line_numbers">
+<title>Line Numbers</title>
+<simpara>Line numbers also appear on our code-editor.</simpara>
+</section>
+</section>
+<section id="_history_of_commits">
+<title>History of commits</title>
+<simpara>Our app provides, commit history to be able to see previous commits and the person who made that commit.</simpara>
+</section>
+<section id="_rollback_to_previous_version">
+<title>Rollback to previous version</title>
+<simpara>We also provide feature to roll-back to the previous version of the commit. If something goes wrong in the latest version of the project, we have the feature to roll-back to previous stable version of the project.</simpara>
+</section>
+</chapter>
+<glossary id="_glossary">
+<title>Glossary</title>
+<simpara>List of Glossaries are:</simpara>
+
+<glossentry>
+<glossterm>node.js</glossterm>
+<glossdef>
+<simpara>Node.js is an open-source, cross-platform runtime environment for developing server-side web applications. Node.js applications are written in JavaScript and can be run within the Node.js runtime on OS X, Microsoft Windows, Linux, FreeBSD, NonStop, IBM AIX, IBM System z and IBM i.</simpara>
+</glossdef>
+</glossentry>
+<glossentry>
+<glossterm>Express</glossterm>
+<glossdef>
+<simpara>App framework used in our app.</simpara>
+</glossdef>
+</glossentry>
+<glossentry>
+<glossterm>Mongoose</glossterm>
+<glossdef>
+<simpara>middleware used in our app to access database.</simpara>
+</glossdef>
+</glossentry>
+<glossentry>
+<glossterm>codemirror</glossterm>
+<glossdef>
+<simpara>Library used for implementing code editor in web-sites.</simpara>
+</glossdef>
+</glossentry>
+
+</glossary>
+<index id="_index">
+<title>Index</title>
+
+</index>
+</book>
